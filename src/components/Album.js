@@ -43,6 +43,7 @@ class Album extends Component {
         } else {
             if (!isSameSong) { this.setSong(song); }
             this.play();
+            this.setState({ })
         }
     }
 
@@ -83,7 +84,9 @@ class Album extends Component {
                                     <td>
                                         { (this.state.isHover && this.state.songHover === index) 
                                             ? <ion-icon name="play"/> 
-                                            : index + 1}
+                                            : (this.state.currentSong === song && this.state.isPlaying)
+                                                ? <ion-icon name="pause"/>
+                                                : index + 1}
                                     </td>
                                     <td>
                                     {song.title}
