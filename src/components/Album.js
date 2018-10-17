@@ -111,6 +111,15 @@ class Album extends Component {
     handleMouseLeave(index) {
         this.setState({ isHover: false, songHover: index });
     }
+    
+    formatTime(time) {
+        console.log(time);
+        const mins = Math.trunc(time / 60);
+        console.log(mins);
+        const secs = Math.trunc(time - (60 * mins));
+        console.log(secs);
+        return (`${mins}:${secs < 10 ? '0' + secs : secs}` || "-:--");
+    }
 
     render() {
         return (
@@ -169,6 +178,7 @@ class Album extends Component {
                     currentTime={this.audioElement.currentTime}
                     duration={this.audioElement.duration}
                     volume={this.audioElement.volume}
+                    formatTime={(time) => this.formatTime(time)}
                 />
             </section>
         );
