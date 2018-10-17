@@ -12,7 +12,9 @@ class Album extends Component {
         this.state = {
             album: album,
             currentSong: album.songs[0],
-            isPlaying: false
+            isPlaying: false,
+            isHover: false,
+            songHover: 0
         };
 
         this.audioElement = document.createElement('audio');
@@ -44,6 +46,13 @@ class Album extends Component {
         }
     }
 
+    handleMouseEnter(index) {
+        this.setState({ isHover: true, songHover: index });
+    }
+
+    handleMouseLeave(index) {
+        this.setState({ isHover: false, songHover: index });
+    }
 
     render() {
         return (
@@ -65,11 +74,24 @@ class Album extends Component {
                     <tbody>
                         {this.state.album.songs.map( (song, index) => {
                             return (
-                                <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
-                                    <td>{index + 1}</td>
-                                    <td>{song.title}</td>
-                                    <td>{song.duration}</td>
-                                </tr>
+                                <tr className="song" 
+                                    key={index} 
+                                    onClick={() => this.handleSongClick(song)} 
+                                    onMouseEnter={() => this.handleMouseEnter(index)}
+                                    onMouseLeave={() => this.handleMouseLeave(index)}
+                                >
+                                    <td>
+                                        { (this.state.isHover && this.state.songHover === index) 
+                                            ? <ion-icon name="play"/> 
+                                            : index + 1}
+                                    </td>
+                                    <td>
+                                    {song.title}
+                                    </td>
+                                    <td>
+                                    {song.duration}
+                                    </td>
+                              </tr>
                             );
                         })}
                     </tbody>
