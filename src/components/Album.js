@@ -82,11 +82,13 @@ class Album extends Component {
                                     onMouseLeave={() => this.handleMouseLeave(index)}
                                 >
                                     <td>
-                                        { (this.state.isHover && this.state.songHover === index) 
+                                        { (this.state.isHover && this.state.songHover === index && this.state.isPlaying === false) 
                                             ? <ion-icon name="play"/> 
                                             : (this.state.currentSong === song && this.state.isPlaying)
                                                 ? <ion-icon name="pause"/>
-                                                : index + 1}
+                                                : (this.state.currentSong === song && this.state.isPlaying === false)
+                                                    ? <ion-icon name="play" />
+                                                    : index + 1}
                                     </td>
                                     <td>
                                     {song.title}
