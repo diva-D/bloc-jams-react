@@ -113,11 +113,8 @@ class Album extends Component {
     }
     
     formatTime(time) {
-        console.log(time);
         const mins = Math.trunc(time / 60);
-        console.log(mins);
         const secs = Math.trunc(time - (60 * mins));
-        console.log(secs);
         return (`${mins}:${secs < 10 ? '0' + secs : secs}` || "-:--");
     }
 
@@ -160,7 +157,7 @@ class Album extends Component {
                                     {song.title}
                                     </td>
                                     <td>
-                                    {song.duration}
+                                    {this.formatTime(song.duration)}
                                     </td>
                               </tr>
                             );
