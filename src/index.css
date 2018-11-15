@@ -3,3 +3,123 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.brand-img {
+  max-height: 44px;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #ED3572 !important;
+}
+
+.nav-pills .nav-link {
+  color: #ED3572;
+}
+
+.jumbotron {
+  background: 
+    linear-gradient(rgba(237, 53, 114, 0.2), rgba(237, 53, 114, 0.2)),
+    url('/assets/images/unsplash_jumbo.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;  
+}
+
+
+.jumbotron h1 {
+  top: 50px;
+  position: relative;
+}
+
+.jumbotron p {
+  top: 50px;
+  position: relative;
+}
+
+.jumbotron .btn-jumbo {
+  background-color: #ED3572;
+  color: #ffffff;
+  top: 200px;
+  position: relative;
+  border-color: white;
+  min-width: 120px;
+  min-height: 50px;
+  border-radius: 25px;
+}
+
+.point-img {
+  margin: 15px 0;
+}
+
+.jumbotron h1 {
+  font-weight: 700;
+}
+
+.shadow-red-lg {
+  text-shadow: 4px 4px 4px #ED3572;
+  font-style: italic;
+}
+
+.jumbotron p {
+  font-weight: 700;
+}
+
+.shadow-red-sm {
+  text-shadow: 2px 2px 2px #ED3572;
+  font-style: italic;
+}
+
+.library, .album {
+  margin-top: 80px;
+}
+
+.library h1 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.library .card {
+  color: #000;
+  border: none;
+}
+
+.box-shadow {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  }
+
+.box-shadow:before,
+.box-shadow:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
+}
+
+.box-shadow:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
+.card-title.display-4 {
+  font-size: 1.8rem;
+}
+
+#song-list {
+  margin-top: 30px;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
+import AlbumCard from './AlbumCard';
+import { Container, Row, Col, Table } from 'reactstrap';
 
 class Album extends Component {
     constructor(props) {
@@ -120,21 +122,32 @@ class Album extends Component {
 
     render() {
         return (
-            <section className="album">
-                <section id="album-info">
-                    <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} />
-                    <div className="album-details">
-                        <h1 id="album-title">{this.state.album.title}</h1>
-                        <h2 className="artist">{this.state.album.artist}</h2>
-                        <div id="release-info">{this.state.album.releaseInfo}</div>
-                    </div>
-                </section>
-                <table id="song-list">
+            <Container className="album">
+                <Row id="album-info">
+                    <Col md="4">
+                    </Col>
+                    <Col md="4">
+                        <AlbumCard album={this.state.album} library={false} />
+                    </Col>
+                    <Col md="4">
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+
+                    </Col>
+                </Row>
+                <Table className="table-hover" id="song-list">
                     <colgroup>
                         <col id="song-number-column" />
                         <col id="song-title-column" />
                         <col id="song-duration-column" />
                     </colgroup>
+                    <thead className="thead-dark">
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Duration</th>
+                    </thead>
                     <tbody>
                         {this.state.album.songs.map( (song, index) => {
                             return (
@@ -163,7 +176,7 @@ class Album extends Component {
                             );
                         })}
                     </tbody>
-                </table>
+                </Table>
                 <PlayerBar 
                     isPlaying={this.state.isPlaying} 
                     currentSong={this.state.currentSong} 
@@ -177,7 +190,7 @@ class Album extends Component {
                     volume={this.audioElement.volume}
                     formatTime={(time) => this.formatTime(time)}
                 />
-            </section>
+            </Container>
         );
     }
 }

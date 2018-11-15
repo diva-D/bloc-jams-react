@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Container, Row, Col, NavLink } from 'reactstrap';
+import { NavLink as RRNavLink } from 'react-router-dom';
+import AlbumCard from './AlbumCard';
 import albumData from './../data/albums';
 
 class Library extends Component {
@@ -10,16 +12,32 @@ class Library extends Component {
         };
     }
     render() {
-        return <section className="library">
-            {this.state.albums.map((album, index) => (
-                <Link to={`/album/${album.slug}`} key={index}>
-                    <img src={album.albumCover} alt={album.title} />
-                    <div>{album.title}</div>
-                    <div>{album.artist}</div>
-                    <div>{album.songs.length} songs</div>
-                </Link>
-            ))}
-          </section>;
+        return (
+            <Container className="library">
+                <Row>
+                    <Col>
+                        <h1 className="display-1 shadow-red-lg">Library</h1> 
+                    </Col>
+                </Row>
+                <Row>   
+                    {this.state.albums.map((album, index) => (
+                        <Col md="4" className="offset-md-1">
+                            <NavLink to={`/album/${album.slug}`} key={index} tag={RRNavLink}>
+                                <AlbumCard album={album} library={true} />
+                                {/* <Card className="text-center box-shadow h-100">
+                                    <CardImg top src={album.albumCover} alt={album.title} />
+                                    <CardBody className="shadow-red-sm">
+                                        <CardTitle className="display-4">{album.title}</CardTitle>
+                                        <CardSubtitle>{album.artist}</CardSubtitle>
+                                        <CardText>{album.songs.length} songs</CardText>
+                                    </CardBody>
+                                </Card> */}
+                            </NavLink>
+                        </Col>
+                    ))}
+                </Row>    
+            </Container>
+        );
     }
 }
 export default Library;
